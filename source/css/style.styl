@@ -1,0 +1,208 @@
+@import "nib";
+@import "colors/stylus/colors";
+@import "fontello/css/fontello.css";
+@import "hexo-highlight.css";
+// @import "hemisu-light.css";
+// @import "mdo-light.css";
+
+$containerWidth = 650px;
+$iconWidth = 30px;
+$gutter = 28px;
+$mainTextColor = #5a5a5a;
+
+// global-reset();
+html {
+  font-size: 14px;
+}
+@media (min-width: 40em) {
+  html {
+    font-size: 18px;
+  }
+}
+body {
+  font: 1rem/1.5 "Lucida Grande","Lucida Sans Unicode",Helvetica,Arial,Verdana,sans-serif;
+  // background: #fff url('images/white_texture.png');
+  margin: 0;
+  color: $mainTextColor;
+  // text-shadow: 0 2px white;
+}
+
+h1 {
+  font-size: 1.8em;
+}
+h2 {
+  font-size: 1.5em;
+}
+a {
+  text-decoration: none;
+}
+img {
+  max-width: 100%;
+}
+blockquote {
+  padding-left: 1em;
+  margin-left: 1em;
+  border-left: 2px solid silver;
+  color: lighten($mainTextColor, 30%);
+  font-size: .9em;
+}
+
+.f-left {
+  float: left;
+}
+.f-right {
+  float: right;
+}
+
+.header,
+.footer {
+  a {
+    color: black;
+    &:hover {
+      color: blue;
+    }
+  }
+}
+
+.container {
+  width: $containerWidth;
+  margin: 0 auto;
+}
+
+.header {
+  position: relative;
+  border-bottom: 1px solid gray;
+  margin-top: $gutter;
+  .icon {
+    position: absolute;
+    left: 25px;
+    bottom: 0;
+    width: $iconWidth;
+    line-height: @width;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    text-align: center;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    z-index: -1;
+  }
+  .icon-rss {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: - ($iconWidth / 2);
+    font-size: 1.5em;
+  }
+}
+
+.circle {
+  display: inline-block;
+  line-height: 0;
+  border-radius(50%);
+  // box-shadow: 0px 0px 5px rgba(0,0,0,0.4);
+  transition: linear 0.25s;
+  vertical-align: bottom;
+  &:hover {
+    // box-shadow: 0px 0px 5px rgba(0,0,0,0.4);
+    transition: ease-out 0.3s;
+    transform: rotate(-90deg);
+  }
+}
+a.circle { color: transparent; } /* IE fix: removes blue border */
+
+.avatar {
+  border-radius(50%);
+}
+
+.main {
+  min-height: 600px;
+  margin: $gutter * 2 0;
+}
+.section-list {
+  font-size: 16px;
+  h1 {
+    margin-top: 1.2em;
+  }
+  ul {
+    padding-left: 0;
+  }
+  li {
+    list-style: none;
+    margin-bottom: 1em;
+  }
+}
+.posts time {
+  float: right;
+}
+
+.icon {
+  &:hover:before {
+    transition: 500ms;
+    transform: rotate(360deg);
+  }
+}
+
+// .animate:hover {
+//   display: inline-block;
+//   width: 4 * ($iconWidth + 2) + 100px;
+//   .icon-twitter {
+//     animation-delay: 0s;
+//     animation-name: roll-4;
+//   }
+//   .icon-headphones {
+//     animation-delay: 400ms;
+//     animation-name: roll-3;
+//   }
+//   .icon-fivehundredpx {
+//     animation-delay: 600ms;
+//     animation-name: roll-2;
+//   }
+//   .icon-github {
+//     animation-delay: 800ms;
+//     animation-name: roll-1;
+//   }
+// }
+
+@keyframes roll-1 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+    left: 3 * ($iconWidth + 2);
+  }
+}
+@keyframes roll-2 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+    left: 4 * ($iconWidth + 2);
+  }
+}
+@keyframes roll-3 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+    left: 5 * ($iconWidth + 2);
+  }
+}
+@keyframes roll-4 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+    left: 6 * ($iconWidth + 2);
+  }
+}
+
+.footer {
+  padding-top: 10px;
+  margin-bottom: $gutter;
+  border-top: 1px solid gray;
+  text-align: center;
+}

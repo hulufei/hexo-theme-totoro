@@ -1,0 +1,10 @@
+<div class="section-list posts">
+  <ul>
+    <% page.posts.each(function(post) { %>
+    <li>
+      <time><%- date(post.updated) %></time>
+      <a href="<%- post.permalink %>"><%- post.title %></a>
+    </li>
+    <% }) %>
+  </ul>
+</div>
