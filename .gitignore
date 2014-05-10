@@ -2,7 +2,6 @@
 logs
 *.log
 .DS_Store
-source/bower
 
 # Runtime data
 pids
