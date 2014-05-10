@@ -1,5 +1,5 @@
 @import "nib";
-@import "colors/stylus/colors";
+@import "../bower/colors/stylus/colors";
 @import "fontello/css/fontello.css";
 @import "hexo-highlight.css";
 // @import "hemisu-light.css";
@@ -71,47 +71,58 @@ blockquote {
 
 .header {
   position: relative;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid black;
   margin-top: $gutter;
-  .icon {
-    position: absolute;
-    left: 25px;
-    bottom: 0;
-    width: $iconWidth;
-    line-height: @width;
-    border: 1px solid #ccc;
-    border-radius: 50%;
-    text-align: center;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-    z-index: -1;
-  }
-  .icon-rss {
-    position: absolute;
-    right: 0;
-    top: 50%;
-    margin-top: - ($iconWidth / 2);
-    font-size: 1.5em;
+}
+.icon-rss {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  margin-top: - ($iconWidth / 2);
+  font-size: 1.5em;
+  transition: linear 0.25s;
+  &:hover {
+    transform: rotate(-45deg) scale(1.2, 1.2);
   }
 }
-
 .circle {
   display: inline-block;
   line-height: 0;
   border-radius(50%);
-  // box-shadow: 0px 0px 5px rgba(0,0,0,0.4);
-  transition: linear 0.25s;
   vertical-align: bottom;
-  &:hover {
-    // box-shadow: 0px 0px 5px rgba(0,0,0,0.4);
-    transition: ease-out 0.3s;
-    transform: rotate(-90deg);
-  }
 }
 a.circle { color: transparent; } /* IE fix: removes blue border */
-
 .avatar {
   border-radius(50%);
+}
+
+.circle:hover {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  // .bounce
+  -webkit-animation-name: bounce;
+  animation-name: bounce;
+}
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  40% {
+    -webkit-transform: translateY(-30px);
+    -ms-transform: translateY(-30px);
+    transform: translateY(-30px);
+  }
+
+  60% {
+    -webkit-transform: translateY(-15px);
+    -ms-transform: translateY(-15px);
+    transform: translateY(-15px);
+  }
 }
 
 .main {
@@ -142,67 +153,8 @@ a.circle { color: transparent; } /* IE fix: removes blue border */
   }
 }
 
-// .animate:hover {
-//   display: inline-block;
-//   width: 4 * ($iconWidth + 2) + 100px;
-//   .icon-twitter {
-//     animation-delay: 0s;
-//     animation-name: roll-4;
-//   }
-//   .icon-headphones {
-//     animation-delay: 400ms;
-//     animation-name: roll-3;
-//   }
-//   .icon-fivehundredpx {
-//     animation-delay: 600ms;
-//     animation-name: roll-2;
-//   }
-//   .icon-github {
-//     animation-delay: 800ms;
-//     animation-name: roll-1;
-//   }
-// }
-
-@keyframes roll-1 {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-    left: 3 * ($iconWidth + 2);
-  }
-}
-@keyframes roll-2 {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-    left: 4 * ($iconWidth + 2);
-  }
-}
-@keyframes roll-3 {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-    left: 5 * ($iconWidth + 2);
-  }
-}
-@keyframes roll-4 {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-    left: 6 * ($iconWidth + 2);
-  }
-}
-
 .footer {
   padding-top: 10px;
   margin-bottom: $gutter;
-  border-top: 1px solid gray;
   text-align: center;
 }

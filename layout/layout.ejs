@@ -1,5 +1,5 @@
 <%- partial('_partial/head') %>
-<body>
+<body <% if (!path) { %>class="homepage"<% } %>>
   <div class="container">
   <%- partial('_partial/header') %>
   <section class="main"><%- body %></section>
