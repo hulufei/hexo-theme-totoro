@@ -20,7 +20,7 @@ html {
   }
 }
 body {
-  font: 1rem/1.5 "Lucida Grande","Lucida Sans Unicode",Helvetica,Arial,Verdana,sans-serif;
+  font: 1rem/1.7 "Lucida Grande","Lucida Sans Unicode",Helvetica,Arial,Verdana,sans-serif;
   // background: #fff url('images/white_texture.png');
   margin: 0;
   color: $mainTextColor;
@@ -144,6 +144,18 @@ a.circle { color: transparent; } /* IE fix: removes blue border */
 }
 .posts time {
   float: right;
+}
+.meta {
+  color: gray;
+  time {
+    margin-right: .5em;
+  }
+}
+.tag-link {
+  font-size: 0.8em;
+  &:before {
+    content: '#'
+  }
 }
 
 .icon {
